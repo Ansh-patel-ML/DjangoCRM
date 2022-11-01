@@ -15,13 +15,12 @@
     </style>
   </head>
   <body>
-    <h1>This is all our leads</h1>
-    {% for lead in leads %}
-    <div class="lead">
-      <a href="{% url 'leads:lead-detail' lead.pk %}"
-        >{{ lead.first_name }} {{ lead.last_name }}</a
-      >. Age: {{lead.age}}
-    </div>
-    {% endfor %}
+    <a href="{% url 'leads:lead-list' %}">Back to Leads</a>
+    <hr />
+    <h1>This is detail of {{ lead.first_name }}</h1>
+    <p>This lead has been handle by agent: {{lead.agent}}</p>
+    <hr />
+    <a href="{% url 'leads:lead-update' lead.pk %}">Update Lead</a>
+    <a href="{% url 'leads:lead-delete' lead.pk %}">Delete Lead</a>
   </body>
 </html>
